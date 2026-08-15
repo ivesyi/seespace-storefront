@@ -56,8 +56,9 @@ export function setCartQty(sku, qty) {
 
 export function cartIcon() {
   return `<svg class="icon-cart" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M7 8h10l-.85 11.2a1.4 1.4 0 0 1-1.4 1.3H9.25a1.4 1.4 0 0 1-1.4-1.3L7 8Z" stroke="currentColor" stroke-width="1.6"/>
-    <path d="M9.2 8V6.8a2.8 2.8 0 0 1 5.6 0V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M3 4h2l2.2 10.2a1.4 1.4 0 0 0 1.4 1.1h8.7a1.4 1.4 0 0 0 1.4-1.1L20 8H7.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="9.2" cy="19.2" r="1.5" fill="currentColor"/>
+    <circle cx="17.2" cy="19.2" r="1.5" fill="currentColor"/>
   </svg>`;
 }
 
