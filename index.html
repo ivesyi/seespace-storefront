@@ -4,7 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SeeSpace — Small Space Organization</title>
-  <link rel="stylesheet" href="./css/styles.css?v=3" />
+  <meta name="description" content="Four organizers for a desk, a drawer, and a small sink. USD. PayPal on Shopify Checkout." />
+  <meta property="og:title" content="SeeSpace — See more space." />
+  <meta property="og:description" content="Four SKUs for compact rooms. Tracked shipping from China." />
+  <meta property="og:image" content="https://shops.yiqiai.tech/images/share-clips.jpg" />
+  <link rel="stylesheet" href="./css/styles.css?v=4" />
 </head>
 <body>
   <div class="notice">Tracked shipping to the US, UK, Canada, and Australia.</div>
@@ -22,7 +26,7 @@
 
   <main class="wrap">
     <section class="hero-band" aria-label="Hero">
-      <img src="https://cf.cjdropshipping.com/2056/3641937116880.jpg" alt="Drawer organizer bins in a shallow drawer" />
+      <img src="./images/hero-desk.jpg" alt="A small desk with a sorted drawer and cable clips along the edge" />
       <div class="hero-copy">
         <p class="kicker">Four SKUs · USD · PayPal</p>
         <h1>See more space.</h1>
@@ -41,22 +45,28 @@
 
     <section class="section">
       <h2>Shop by space</h2>
-      <div class="trust">
-        <div>
-          <h3>Desk & Drawer</h3>
-          <p>Cable clips, drawer bins, and bamboo dividers.</p>
-          <p><a href="./shop.html?type=Desk%20%26%20Drawer">View three SKUs</a></p>
-        </div>
-        <div>
-          <h3>Kitchen</h3>
-          <p>A sink caddy for sponge and brush.</p>
-          <p><a href="./product.html?handle=compact-sink-caddy">View KITC-01</a></p>
-        </div>
-        <div>
-          <h3>How it ships</h3>
-          <p>From China, tracked, to the US, UK, Canada, and Australia.</p>
-          <p><a href="./about.html">About the shop</a></p>
-        </div>
+      <div class="space-grid">
+        <a class="space-card" href="./shop.html?type=Desk%20%26%20Drawer">
+          <img src="./images/space-drawer.jpg" alt="Bamboo dividers splitting a drawer into sections" />
+          <div>
+            <h3>Desk & Drawer</h3>
+            <p>Clips, bins, and bamboo dividers.</p>
+          </div>
+        </a>
+        <a class="space-card" href="./product.html?handle=compact-sink-caddy">
+          <img src="./images/space-kitchen.jpg" alt="A sink caddy holding a sponge and brush" />
+          <div>
+            <h3>Kitchen</h3>
+            <p>One caddy for sponge and brush.</p>
+          </div>
+        </a>
+        <a class="space-card" href="./product.html?handle=silicone-cable-clips">
+          <img src="./images/share-clips.jpg" alt="A nightstand cable held by a silicone clip" />
+          <div>
+            <h3>Bedside</h3>
+            <p>A light first test order.</p>
+          </div>
+        </a>
       </div>
     </section>
 
@@ -82,7 +92,7 @@
     </div>
   </footer>
   <script type="module">
-    import { loadCatalog, cardHTML } from "./js/app.js?v=3";
+    import { loadCatalog, cardHTML } from "./js/app.js?v=4";
     const featured = ["DESK-04", "DESK-02", "DESK-03", "KITC-01"];
     const products = await loadCatalog();
     const map = Object.fromEntries(products.map((p) => [p.sku, p]));

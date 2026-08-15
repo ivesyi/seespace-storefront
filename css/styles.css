@@ -120,6 +120,19 @@ nav a:hover, nav a[aria-current="page"] { color: var(--ink); }
 .trust div { border-top: 1px solid var(--line); padding-top: 12px; }
 .trust h3 { margin: 0 0 8px; font-size: 16px; font-weight: 500; }
 .trust p { margin: 0; color: var(--muted); font-size: 14px; }
+.space-grid { display: grid; gap: 16px; }
+@media (min-width: 800px) { .space-grid { grid-template-columns: repeat(3, 1fr); } }
+.space-card {
+  display: block;
+  text-decoration: none;
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: inherit;
+}
+.space-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.space-card div { padding: 12px 14px 16px; }
+.space-card h3 { margin: 0 0 6px; font-size: 16px; font-weight: 500; }
+.space-card p { margin: 0; color: var(--muted); font-size: 14px; }
 .pdp { display: grid; gap: 28px; padding: 40px 0 64px; }
 @media (min-width: 800px) { .pdp { grid-template-columns: 1fr 1fr; align-items: start; } }
 .pdp .swatch, .pdp .thumb { min-height: 320px; }
