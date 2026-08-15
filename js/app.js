@@ -54,17 +54,35 @@ export function setCartQty(sku, qty) {
   setCart(next);
 }
 
+export function cartIcon() {
+  return `<svg class="icon-cart" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M7 8h10l-.85 11.2a1.4 1.4 0 0 1-1.4 1.3H9.25a1.4 1.4 0 0 1-1.4-1.3L7 8Z" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M9.2 8V6.8a2.8 2.8 0 0 1 5.6 0V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>`;
+}
+
 export function flash(el, text) {
   if (!el) return;
-  const prev = el.dataset.label || el.textContent;
+  const label = el.querySelector(".btn-label") || el;
+  const prev = el.dataset.label || label.textContent;
   el.dataset.label = prev;
-  el.textContent = text;
-  window.setTimeout(() => { el.textContent = el.dataset.label; }, 1400);
+  label.textContent = text;
+  window.setTimeout(() => { label.textContent = el.dataset.label; }, 1400);
 }
 
 export function paintCartCount() {
   const n = getCart().reduce((a, i) => a + i.qty, 0);
   $$("[data-cart-count]").forEach((el) => { el.textContent = n; });
+}
+
+export function paintCartLinks() {
+  $$(".cart-link").forEach((el) => {
+    if (el.querySelector(".icon-cart")) return;
+    const n = el.querySelector("[data-cart-count]")?.textContent || "0";
+    const current = el.getAttribute("aria-current");
+    el.innerHTML = `${cartIcon()}<span class="cart-label">Cart (<span data-cart-count>${n}</span>)</span>`;
+    if (current) el.setAttribute("aria-current", current);
+  });
 }
 
 export function checkout() {
@@ -121,6 +139,7 @@ export function paintFooter() {
 
 export function mountChrome() {
   tidyUrl();
+  paintCartLinks();
   paintCartCount();
   paintFooter();
 }

@@ -39,7 +39,31 @@ img { max-width: 100%; display: block; }
 nav { display: flex; gap: 18px; font-size: 14px; }
 nav a { text-decoration: none; color: var(--muted); }
 nav a:hover, nav a[aria-current="page"] { color: var(--ink); }
-.cart-link { text-decoration: none; font-size: 14px; white-space: nowrap; }
+.cart-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.icon-cart {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  display: block;
+}
+.btn .icon-cart { width: 18px; height: 18px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.cart-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cart-title .icon-cart { width: 28px; height: 28px; }
+.empty-cart { display: grid; gap: 10px; justify-items: start; }
+.empty-cart .icon-cart { width: 36px; height: 36px; color: var(--muted); }
 .notice {
   background: var(--ink);
   color: var(--paper);

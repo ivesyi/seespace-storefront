@@ -1,4 +1,4 @@
-import { loadCatalog, money, addToCart, flash, cardHTML } from "/js/app.js?v=8";
+import { loadCatalog, money, addToCart, flash, cardHTML, cartIcon } from "/js/app.js?v=9";
 
 function handleFromPath() {
   const parts = location.pathname.split("/").filter(Boolean);
@@ -39,7 +39,7 @@ if (!p) {
           <input id="qty" type="number" min="1" value="1" />
           <button type="button" id="plus" aria-label="Increase">+</button>
         </div>
-        <button class="btn" type="button" id="add">Add to cart</button>
+        <button class="btn" type="button" id="add">${cartIcon()}<span class="btn-label">Add to cart</span></button>
       </div>
       <p class="note">Tracked parcel from China. PayPal is available at Shopify Checkout. <a href="/shipping/">Shipping</a> · <a href="/returns/">Returns</a></p>
       <p><a class="text-link" href="/shop/">Continue shopping</a></p>

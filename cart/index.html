@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Cart — SeeSpace</title>
   <link rel="canonical" href="https://shops.yiqiai.tech/cart/" />
-  <link rel="stylesheet" href="/css/styles.css?v=11" />
+  <link rel="stylesheet" href="/css/styles.css?v=12" />
 </head>
 <body>
   <div class="notice">Tracked shipping to the US, UK, Canada, and Australia.</div>
@@ -24,7 +24,7 @@
     </div>
   </header>
   <main class="wrap section">
-    <h2>Your cart</h2>
+    <h2 class="cart-title">Your cart</h2>
     <div id="rows"></div>
     <div class="cart-summary" id="summary" hidden>
       <p id="total"></p>
@@ -40,14 +40,16 @@
     <div class="wrap">SeeSpace. hello@shops.yiqiai.tech. © <span id="year"></span></div>
   </footer>
   <script type="module">
-    import { getCart, setCart, setCartQty, money, checkout, productHref } from "/js/app.js?v=8";
+    import { getCart, setCart, setCartQty, money, checkout, productHref, cartIcon } from "/js/app.js?v=9";
+    const title = document.querySelector(".cart-title");
+    if (title && !title.querySelector(".icon-cart")) title.insertAdjacentHTML("afterbegin", cartIcon());
     const rows = document.getElementById("rows");
     const total = document.getElementById("total");
     const summary = document.getElementById("summary");
     function paint() {
       const cart = getCart();
       if (!cart.length) {
-        rows.innerHTML = `<p class="muted">Your cart is empty. <a class="text-link" href="/shop/">Browse organizers</a></p>`;
+        rows.innerHTML = `<div class="empty-cart">${cartIcon()}<p class="muted">Your cart is empty. <a class="text-link" href="/shop/">Browse organizers</a></p></div>`;
         summary.hidden = true;
         return;
       }
