@@ -80,7 +80,7 @@ export function paintCartLinks() {
     if (el.querySelector(".icon-cart")) return;
     const n = el.querySelector("[data-cart-count]")?.textContent || "0";
     const current = el.getAttribute("aria-current");
-    el.innerHTML = `${cartIcon()}<span class="cart-label">Cart (<span data-cart-count>${n}</span>)</span>`;
+    el.innerHTML = `${cartIcon()}<span class="cart-label">Cart</span><span class="cart-count" data-cart-count>${n}</span>`;
     if (current) el.setAttribute("aria-current", current);
   });
 }

@@ -32,27 +32,39 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  min-height: 64px;
+  gap: 24px;
+  min-height: 76px;
 }
-.brand { font-size: 20px; letter-spacing: 0.04em; text-decoration: none; font-weight: 600; }
-nav { display: flex; gap: 18px; font-size: 14px; }
-nav a { text-decoration: none; color: var(--muted); }
+.brand { font-size: 24px; letter-spacing: 0.03em; text-decoration: none; font-weight: 600; }
+nav { display: flex; gap: 28px; font-size: 16px; }
+nav a { text-decoration: none; color: var(--muted); padding: 6px 0; }
 nav a:hover, nav a[aria-current="page"] { color: var(--ink); }
 .cart-link {
-  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
   white-space: nowrap;
+  padding: 6px 0;
 }
 .icon-cart {
   width: 22px;
   height: 22px;
   flex: 0 0 auto;
   display: block;
+}
+.cart-link .icon-cart { width: 28px; height: 28px; }
+.cart-count {
+  min-width: 1.5em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 .btn .icon-cart { width: 18px; height: 18px; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
@@ -276,25 +288,27 @@ nav a:hover, nav a[aria-current="page"] { color: var(--ink); }
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-areas: "brand cart" "nav nav";
-    gap: 6px 12px;
+    gap: 10px 16px;
     min-height: 0;
-    padding: 12px 0 8px;
+    padding: 14px 0 10px;
     align-items: center;
   }
-  .brand { grid-area: brand; }
+  .brand { grid-area: brand; font-size: 22px; }
   nav {
     grid-area: nav;
-    gap: 4px;
-    margin: 0 -8px;
+    gap: 8px;
+    margin: 0 -4px;
+    font-size: 16px;
   }
   nav a {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    padding: 8px;
+    padding: 8px 12px;
   }
   .cart-link {
     grid-area: cart;
+    font-size: 16px;
     display: inline-flex;
     align-items: center;
     min-height: 44px;

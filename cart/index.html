@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Cart — SeeSpace</title>
   <link rel="canonical" href="https://shops.yiqiai.tech/cart/" />
-  <link rel="stylesheet" href="/css/styles.css?v=12" />
+  <link rel="stylesheet" href="/css/styles.css?v=13" />
 </head>
 <body>
   <div class="notice">Tracked shipping to the US, UK, Canada, and Australia.</div>
@@ -40,7 +40,7 @@
     <div class="wrap">SeeSpace. hello@shops.yiqiai.tech. © <span id="year"></span></div>
   </footer>
   <script type="module">
-    import { getCart, setCart, setCartQty, money, checkout, productHref, cartIcon } from "/js/app.js?v=9";
+    import { getCart, setCart, setCartQty, money, checkout, productHref, cartIcon } from "/js/app.js?v=10";
     const title = document.querySelector(".cart-title");
     if (title && !title.querySelector(".icon-cart")) title.insertAdjacentHTML("afterbegin", cartIcon());
     const rows = document.getElementById("rows");

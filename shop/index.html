@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Shop — SeeSpace</title>
   <link rel="canonical" href="https://shops.yiqiai.tech/shop/" />
-  <link rel="stylesheet" href="/css/styles.css?v=12" />
+  <link rel="stylesheet" href="/css/styles.css?v=13" />
 </head>
 <body>
   <div class="notice">Tracked shipping to the US, UK, Canada, and Australia.</div>
@@ -33,7 +33,7 @@
     <div class="wrap">SeeSpace. hello@shops.yiqiai.tech. © <span id="year"></span></div>
   </footer>
   <script type="module">
-    import { loadCatalog, cardHTML, shopHref } from "/js/app.js?v=9";
+    import { loadCatalog, cardHTML, shopHref } from "/js/app.js?v=10";
     const products = await loadCatalog();
     const types = ["All", ...new Set(products.map((p) => p.type))];
     const params = new URLSearchParams(location.search);
