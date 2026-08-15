@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop — SeeSpace</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <div class="notice">Tracked shipping to the US, UK, Canada, and Australia.</div>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="./index.html">SeeSpace</a>
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./shop.html" aria-current="page">Shop</a>
+        <a href="./about.html">About</a>
+      </nav>
+      <a class="cart-link" href="./cart.html">Cart (<span data-cart-count>0</span>)</a>
+    </div>
+  </header>
+  <main class="wrap section">
+    <h2>Shop</h2>
+    <div class="filter" id="filters"></div>
+    <div class="grid" id="grid"></div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">SeeSpace. hello@shops.yiqiai.tech. © <span id="year"></span></div>
+  </footer>
+  <script type="module">
+    import { loadCatalog, cardHTML } from "./js/app.js";
+    const products = await loadCatalog();
+    const types = ["All", ...new Set(products.map((p) => p.type))];
+    const params = new URLSearchParams(location.search);
+    let current = params.get("type") || "All";
+    const filters = document.getElementById("filters");
+    const grid = document.getElementById("grid");
+    function paint() {
+      filters.innerHTML = types.map((t) =>
+        `<button data-type="${t}" class="${t === current ? "on" : ""}">${t}</button>`
+      ).join("");
+      const list = current === "All" ? products : products.filter((p) => p.type === current);
+      grid.innerHTML = list.map(cardHTML).join("");
+    }
+    filters.addEventListener("click", (e) => {
+      const t = e.target.dataset.type;
+      if (!t) return;
+      current = t;
+      paint();
+    });
+    paint();
+  </script>
+</body>
+</html>

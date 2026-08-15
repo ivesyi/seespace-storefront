@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cart — SeeSpace</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <div class="notice">Tracked shipping to the US, UK, Canada, and Australia.</div>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="./index.html">SeeSpace</a>
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./shop.html">Shop</a>
+        <a href="./about.html">About</a>
+      </nav>
+      <a class="cart-link" href="./cart.html" aria-current="page">Cart (<span data-cart-count>0</span>)</a>
+    </div>
+  </header>
+  <main class="wrap section">
+    <h2>Cart</h2>
+    <div id="rows"></div>
+    <p id="total"></p>
+    <div class="actions">
+      <button class="btn" type="button" id="checkout">Checkout</button>
+      <a class="btn ghost" href="./shop.html">Continue</a>
+    </div>
+    <p class="small muted">Checkout opens Shopify Checkout (PayPal). If you see a password page or “链接不存在”, turn off the store password first: Online Store → Preferences.</p>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">SeeSpace. hello@shops.yiqiai.tech. © <span id="year"></span></div>
+  </footer>
+  <script type="module">
+    import { getCart, setCart, money, checkout } from "./js/app.js";
+    const rows = document.getElementById("rows");
+    const total = document.getElementById("total");
+    function paint() {
+      const cart = getCart();
+      if (!cart.length) {
+        rows.innerHTML = `<p class="muted">Cart is empty.</p>`;
+        total.textContent = "";
+        return;
+      }
+      rows.innerHTML = cart.map((i) => `
+        <div class="cart-row" data-sku="${i.sku}">
+          <div>
+            <strong>${i.title}</strong>
+            <div class="small muted">${i.sku} · ${money(i.price)}</div>
+          </div>
+          <div>x ${i.qty}</div>
+          <button type="button" data-remove="${i.sku}">Remove</button>
+        </div>`).join("");
+      const sum = cart.reduce((a, i) => a + i.price * i.qty, 0);
+      total.textContent = `Total ${money(sum)}`;
+    }
+    rows.addEventListener("click", (e) => {
+      const sku = e.target.dataset.remove;
+      if (!sku) return;
+      setCart(getCart().filter((i) => i.sku !== sku));
+      paint();
+    });
+    document.getElementById("checkout").addEventListener("click", checkout);
+    paint();
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product — SeeSpace</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <div class="notice">Tracked shipping to the US, UK, Canada, and Australia.</div>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="./index.html">SeeSpace</a>
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./shop.html">Shop</a>
+        <a href="./about.html">About</a>
+      </nav>
+      <a class="cart-link" href="./cart.html">Cart (<span data-cart-count>0</span>)</a>
+    </div>
+  </header>
+  <main class="wrap pdp" id="pdp"></main>
+  <footer class="site-footer">
+    <div class="wrap">SeeSpace. hello@shops.yiqiai.tech. © <span id="year"></span></div>
+  </footer>
+  <script type="module">
+    import { loadCatalog, money, addToCart } from "./js/app.js";
+    const handle = new URLSearchParams(location.search).get("handle");
+    const products = await loadCatalog();
+    const p = products.find((x) => x.handle === handle);
+    const root = document.getElementById("pdp");
+    if (!p) {
+      root.innerHTML = `<p class="muted">Product not found. <a href="./shop.html">Back to shop</a></p>`;
+    } else {
+      document.title = `${p.title} — SeeSpace`;
+      root.innerHTML = `
+        ${p.image ? `<img class="thumb" src="${p.image}" alt="${p.title}" />` : `<div class="swatch">${p.sku}</div>`}
+        <div>
+          <p class="type muted small">${p.type} · ${p.sku}</p>
+          <h1>${p.title}</h1>
+          <p class="price">${money(p.price)}</p>
+          <p>${p.summary}</p>
+          <p class="small muted">${p.grams} g · Processing 1–2 business days. Tracked international shipping.</p>
+          <div class="actions">
+            <button class="btn" data-sku="${p.sku}" type="button" id="add">Add to cart</button>
+            <a class="btn ghost" href="./shop.html">Keep shopping</a>
+          </div>
+        </div>`;
+      document.getElementById("add").addEventListener("click", () => {
+        addToCart(p, 1);
+      });
+    }
+  </script>
+</body>
+</html>

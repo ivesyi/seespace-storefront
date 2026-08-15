@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SeeSpace — Small Space Organization</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <div class="notice">Tracked shipping to the US, UK, Canada, and Australia.</div>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="./index.html">SeeSpace</a>
+      <nav>
+        <a href="./index.html" aria-current="page">Home</a>
+        <a href="./shop.html">Shop</a>
+        <a href="./about.html">About</a>
+      </nav>
+      <a class="cart-link" href="./cart.html">Cart (<span data-cart-count>0</span>)</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>See more space.</h1>
+      <p>Four organizers you can order today: cable clips, a drawer set, bamboo dividers, and a sink caddy.</p>
+      <p class="actions"><a class="btn" href="./shop.html">Shop now</a></p>
+    </section>
+
+    <section class="section">
+      <h2>Start here</h2>
+      <div class="grid" id="featured"></div>
+    </section>
+
+    <section class="section">
+      <h2>Shop by space</h2>
+      <div class="trust">
+        <div>
+          <h3>Desk & Drawer</h3>
+          <p>Cable clips, drawer bins, and bamboo dividers.</p>
+          <p><a href="./shop.html?type=Desk%20%26%20Drawer">View</a></p>
+        </div>
+        <div>
+          <h3>Kitchen</h3>
+          <p>A sink caddy for sponge and brush.</p>
+          <p><a href="./shop.html?type=Kitchen">View</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section trust">
+      <div>
+        <h3>Tracked shipping</h3>
+        <p>Every order ships with tracking.</p>
+      </div>
+      <div>
+        <h3>Secure checkout</h3>
+        <p>Pay with PayPal on Shopify Checkout.</p>
+      </div>
+      <div>
+        <h3>Clear returns</h3>
+        <p>Defects refunded with photos. Change of mind is on the buyer.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      SeeSpace. Tracked shipping from China. Email hello@shops.yiqiai.tech. © <span id="year"></span>
+    </div>
+  </footer>
+  <script type="module">
+    import { loadCatalog, cardHTML } from "./js/app.js";
+    const featured = ["DESK-04", "DESK-02", "DESK-03", "KITC-01"];
+    const products = await loadCatalog();
+    const map = Object.fromEntries(products.map((p) => [p.sku, p]));
+    document.getElementById("featured").innerHTML = featured.map((s) => cardHTML(map[s])).join("");
+  </script>
+</body>
+</html>
