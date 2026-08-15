@@ -21,7 +21,7 @@ export function shopHref(type) {
 }
 
 export async function loadCatalog() {
-  const res = await fetch("/catalog.json?v=7");
+  const res = await fetch("/catalog.json?v=8");
   return res.json();
 }
 
@@ -135,7 +135,7 @@ export function paintFooter() {
         <a href="/terms/">Terms</a>
       </nav>
     </div>
-    <p class="foot-copy">hello@shops.yiqiai.tech · © ${year}</p>`;
+    <p class="foot-copy"><a href="mailto:maxiowx@gmail.com">maxiowx@gmail.com</a> · © ${year}</p>`;
 }
 
 export function mountChrome() {

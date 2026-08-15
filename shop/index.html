@@ -30,10 +30,10 @@
     <div class="grid" id="grid"></div>
   </main>
   <footer class="site-footer">
-    <div class="wrap">SeeSpace. hello@shops.yiqiai.tech. © <span id="year"></span></div>
+    <div class="wrap">SeeSpace. maxiowx@gmail.com. © <span id="year"></span></div>
   </footer>
   <script type="module">
-    import { loadCatalog, cardHTML, shopHref } from "/js/app.js?v=11";
+    import { loadCatalog, cardHTML, shopHref } from "/js/app.js?v=12";
     const products = await loadCatalog();
     const types = ["All", ...new Set(products.map((p) => p.type))];
     const params = new URLSearchParams(location.search);

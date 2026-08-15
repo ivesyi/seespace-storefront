@@ -1,4 +1,4 @@
-import { loadCatalog, money, addToCart, flash, cardHTML, cartIcon } from "/js/app.js?v=11";
+import { loadCatalog, money, addToCart, flash, cardHTML, cartIcon } from "/js/app.js?v=12";
 
 function handleFromPath() {
   const parts = location.pathname.split("/").filter(Boolean);
