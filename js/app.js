@@ -21,7 +21,7 @@ export function shopHref(type) {
 }
 
 export async function loadCatalog() {
-  const res = await fetch("/catalog.json?v=6");
+  const res = await fetch("/catalog.json?v=7");
   return res.json();
 }
 
@@ -46,6 +46,12 @@ export function addToCart(product, qty = 1) {
   if (hit) hit.qty += n;
   else cart.push({ sku: product.sku, handle: product.handle, title: product.title, price: product.price, variantId: product.variantId, image: product.image, qty: n });
   setCart(cart);
+}
+
+export function setCartQty(sku, qty) {
+  const n = Math.max(0, Number(qty) || 0);
+  const next = getCart().map((i) => i.sku === sku ? { ...i, qty: n } : i).filter((i) => i.qty > 0);
+  setCart(next);
 }
 
 export function flash(el, text) {
@@ -88,10 +94,35 @@ export function cardHTML(p) {
   </a>`;
 }
 
+export function paintFooter() {
+  const el = $(".site-footer .wrap");
+  if (!el) return;
+  const year = new Date().getFullYear();
+  el.innerHTML = `
+    <div class="foot-grid">
+      <div>
+        <p class="foot-brand">SeeSpace</p>
+        <p>Organizers for compact rooms. Orders ship from China with tracking.</p>
+      </div>
+      <nav class="foot-nav" aria-label="Footer">
+        <a href="/shop/">Shop</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <nav class="foot-nav" aria-label="Policies">
+        <a href="/shipping/">Shipping</a>
+        <a href="/returns/">Returns</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+    </div>
+    <p class="foot-copy">hello@shops.yiqiai.tech · © ${year}</p>`;
+}
+
 export function mountChrome() {
   tidyUrl();
   paintCartCount();
-  $("#year") && ($("#year").textContent = new Date().getFullYear());
+  paintFooter();
 }
 
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mountChrome);

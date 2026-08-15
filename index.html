@@ -12,7 +12,7 @@
   <meta property="og:title" content="SeeSpace — See more space." />
   <meta property="og:description" content="Four SKUs for compact rooms. Tracked shipping from China." />
   <meta property="og:image" content="https://shops.yiqiai.tech/images/share-clips.jpg" />
-  <link rel="stylesheet" href="/css/styles.css?v=10" />
+  <link rel="stylesheet" href="/css/styles.css?v=11" />
   <script>if (location.pathname.endsWith("/index.html")) location.replace("/" + location.search + location.hash);</script>
 </head>
 <body>
@@ -33,18 +33,33 @@
     <section class="hero-band" aria-label="Hero">
       <img src="/images/hero-desk.jpg" alt="A small desk with a sorted drawer and cable clips along the edge" />
       <div class="hero-copy">
-        <p class="kicker">Four SKUs · USD · PayPal</p>
+        <p class="kicker">For compact rooms</p>
         <h1>See more space.</h1>
-        <p>Simple organizers for a desk, a drawer, and a small sink. Four items you can order today.</p>
+        <p>Quiet organizers for a desk, a drawer, and a small sink. A short list, chosen to stay out of the way.</p>
         <p class="actions">
-          <a class="btn" href="/shop/">Shop the four</a>
-          <a class="btn ghost" href="/product/drawer-organizer-set/">View the drawer set</a>
+          <a class="btn" href="/shop/">Shop organizers</a>
+          <a class="btn ghost" href="/product/drawer-organizer-set/">See the drawer set</a>
         </p>
       </div>
     </section>
 
+    <section class="trust-strip" aria-label="Store notes">
+      <div>
+        <h3>Tracked from China</h3>
+        <p>Orders are packed in 1–2 business days and ship with tracking.</p>
+      </div>
+      <div>
+        <h3>Checkout you know</h3>
+        <p>Pay on Shopify Checkout. PayPal is available.</p>
+      </div>
+      <div>
+        <h3>Straightforward returns</h3>
+        <p>Damaged items can be refunded with photos. <a href="/returns/">Returns</a></p>
+      </div>
+    </section>
+
     <section class="section">
-      <h2>The four SKUs</h2>
+      <h2>In the shop</h2>
       <div class="grid" id="featured"></div>
     </section>
 
@@ -69,24 +84,9 @@
           <img src="/images/share-clips.jpg" alt="A nightstand cable held by a silicone clip" />
           <div>
             <h3>Bedside</h3>
-            <p>A light first test order.</p>
+            <p>A small clip for a nightstand cable.</p>
           </div>
         </a>
-      </div>
-    </section>
-
-    <section class="section trust">
-      <div>
-        <h3>Tracked shipping</h3>
-        <p>Every order ships with tracking.</p>
-      </div>
-      <div>
-        <h3>Secure checkout</h3>
-        <p>Pay with PayPal on Shopify Checkout.</p>
-      </div>
-      <div>
-        <h3>Clear returns</h3>
-        <p>Defects refunded with photos. Change of mind is on the buyer.</p>
       </div>
     </section>
   </main>
@@ -97,7 +97,7 @@
     </div>
   </footer>
   <script type="module">
-    import { loadCatalog, cardHTML } from "/js/app.js?v=6";
+    import { loadCatalog, cardHTML } from "/js/app.js?v=8";
     const featured = ["DESK-04", "DESK-02", "DESK-03", "KITC-01"];
     const products = await loadCatalog();
     const map = Object.fromEntries(products.map((p) => [p.sku, p]));

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Cart — SeeSpace</title>
   <link rel="canonical" href="https://shops.yiqiai.tech/cart/" />
-  <link rel="stylesheet" href="/css/styles.css?v=10" />
+  <link rel="stylesheet" href="/css/styles.css?v=11" />
 </head>
 <body>
   <div class="notice">Tracked shipping to the US, UK, Canada, and Australia.</div>
@@ -24,45 +24,60 @@
     </div>
   </header>
   <main class="wrap section">
-    <h2>Cart</h2>
+    <h2>Your cart</h2>
     <div id="rows"></div>
-    <p id="total"></p>
-    <div class="actions">
-      <button class="btn" type="button" id="checkout">Checkout</button>
-      <a class="btn ghost" href="/shop/">Continue</a>
+    <div class="cart-summary" id="summary" hidden>
+      <p id="total"></p>
+      <p class="small muted">Shipping and taxes are calculated at checkout.</p>
+      <div class="actions">
+        <button class="btn" type="button" id="checkout">Secure checkout</button>
+      </div>
+      <p class="small muted">Shopify Checkout · PayPal available</p>
+      <p><a class="text-link" href="/shop/">Continue shopping</a></p>
     </div>
-    <p class="small muted">Checkout opens Shopify Checkout with PayPal.</p>
   </main>
   <footer class="site-footer">
     <div class="wrap">SeeSpace. hello@shops.yiqiai.tech. © <span id="year"></span></div>
   </footer>
   <script type="module">
-    import { getCart, setCart, money, checkout, productHref } from "/js/app.js?v=6";
+    import { getCart, setCart, setCartQty, money, checkout, productHref } from "/js/app.js?v=8";
     const rows = document.getElementById("rows");
     const total = document.getElementById("total");
+    const summary = document.getElementById("summary");
     function paint() {
       const cart = getCart();
       if (!cart.length) {
-        rows.innerHTML = `<p class="muted">Cart is empty.</p>`;
-        total.textContent = "";
+        rows.innerHTML = `<p class="muted">Your cart is empty. <a class="text-link" href="/shop/">Browse organizers</a></p>`;
+        summary.hidden = true;
         return;
       }
+      summary.hidden = false;
       rows.innerHTML = cart.map((i) => `
         <div class="cart-row" data-sku="${i.sku}">
+          ${i.image ? `<img class="cart-thumb" src="${i.image}" alt="" />` : `<div class="cart-thumb swatch"></div>`}
           <div>
-            <strong><a href="${productHref(i.handle)}">${i.title}</a></strong>
-            <div class="small muted">${i.sku} · ${money(i.price)}</div>
+            <a href="${productHref(i.handle)}">${i.title}</a>
+            <div class="small muted">${money(i.price)} each</div>
+            <button class="text-btn" type="button" data-remove="${i.sku}">Remove</button>
           </div>
-          <div>x ${i.qty}</div>
-          <button type="button" data-remove="${i.sku}">Remove</button>
+          <div class="qty">
+            <button type="button" data-dec="${i.sku}" aria-label="Decrease">−</button>
+            <input value="${i.qty}" readonly />
+            <button type="button" data-inc="${i.sku}" aria-label="Increase">+</button>
+          </div>
+          <div class="line">${money(i.price * i.qty)}</div>
         </div>`).join("");
       const sum = cart.reduce((a, i) => a + i.price * i.qty, 0);
-      total.textContent = `Total ${money(sum)}`;
+      total.textContent = `Subtotal ${money(sum)}`;
     }
     rows.addEventListener("click", (e) => {
-      const sku = e.target.dataset.remove;
+      const sku = e.target.dataset.remove || e.target.dataset.inc || e.target.dataset.dec;
       if (!sku) return;
-      setCart(getCart().filter((i) => i.sku !== sku));
+      const item = getCart().find((i) => i.sku === sku);
+      if (!item) return;
+      if (e.target.dataset.remove) setCart(getCart().filter((i) => i.sku !== sku));
+      else if (e.target.dataset.inc) setCartQty(sku, item.qty + 1);
+      else setCartQty(sku, item.qty - 1);
       paint();
     });
     document.getElementById("checkout").addEventListener("click", checkout);

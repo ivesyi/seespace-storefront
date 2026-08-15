@@ -1,4 +1,4 @@
-import { loadCatalog, money, addToCart, flash, cardHTML } from "/js/app.js?v=6";
+import { loadCatalog, money, addToCart, flash, cardHTML } from "/js/app.js?v=8";
 
 function handleFromPath() {
   const parts = location.pathname.split("/").filter(Boolean);
@@ -28,33 +28,11 @@ if (!p) {
       ${gallery.length > 1 ? `<div class="thumbs" id="thumbs">${thumbs}</div>` : ""}
     </div>
     <div>
-      <p class="crumb"><a href="/shop/">Shop</a> / ${p.type} / ${p.sku}</p>
+      <p class="crumb"><a href="/shop/">Shop</a> / ${p.type}</p>
       <p class="type muted small">${p.type}</p>
       <h1>${p.title}</h1>
       <p class="price">${money(p.price)} <span class="small muted">USD</span></p>
-      <p>${p.lead || p.summary}</p>
-      <div class="specs-block">
-      <span class="specs-mark" aria-hidden="true">
-        <svg viewBox="0 0 32 32" width="24" height="24" fill="none">
-          <rect width="32" height="32" rx="8" fill="#1a1a1a"/>
-          <rect x="6.2" y="7" width="19.6" height="18" rx="2.2" stroke="#f6f3ee" stroke-width="1.7"/>
-          <rect x="12.4" y="8.6" width="1.7" height="14.8" rx="0.6" fill="#f6f3ee"/>
-          <rect x="17.9" y="8.6" width="1.7" height="14.8" rx="0.6" fill="#f6f3ee"/>
-          <rect x="8.2" y="20.6" width="4" height="2.2" rx="0.5" fill="#b5a99a"/>
-          <rect x="14.6" y="11.2" width="2.8" height="2.2" rx="0.5" fill="#b5a99a"/>
-          <rect x="20.2" y="16.4" width="3.6" height="2.2" rx="0.5" fill="#b5a99a"/>
-        </svg>
-      </span>
-      <table class="specs">
-        <tr><th>SKU</th><td>${p.sku}</td></tr>
-        <tr><th>Materials</th><td>${p.materials || "—"}</td></tr>
-        <tr><th>In the box</th><td>${p.inbox || "—"}</td></tr>
-        <tr><th>Use</th><td>${p.use || "—"}</td></tr>
-        <tr><th>Weight</th><td>${p.grams} g</td></tr>
-        <tr><th>Care</th><td>${p.care || "—"}</td></tr>
-        <tr><th>Shipping</th><td>${p.ship || "Tracked international parcel."}</td></tr>
-      </table>
-      </div>
+      <p class="lead">${p.lead || p.summary}</p>
       <div class="actions">
         <div class="qty">
           <button type="button" id="minus" aria-label="Decrease">−</button>
@@ -62,9 +40,21 @@ if (!p) {
           <button type="button" id="plus" aria-label="Increase">+</button>
         </div>
         <button class="btn" type="button" id="add">Add to cart</button>
-        <a class="btn ghost" href="/shop/">Keep shopping</a>
       </div>
-      <p class="note">Checkout is Shopify Checkout with PayPal. Defects can be refunded with photos. Change-of-mind returns are on the buyer.</p>
+      <p class="note">Tracked parcel from China. PayPal is available at Shopify Checkout. <a href="/shipping/">Shipping</a> · <a href="/returns/">Returns</a></p>
+      <p><a class="text-link" href="/shop/">Continue shopping</a></p>
+      <details class="details" open>
+        <summary>Product details</summary>
+        <table class="specs">
+          ${p.size ? `<tr><th>Dimensions</th><td>${p.size}</td></tr>` : ""}
+          <tr><th>What’s included</th><td>${p.inbox || "—"}</td></tr>
+          <tr><th>Fits</th><td>${p.use || "—"}</td></tr>
+          <tr><th>Material</th><td>${p.materials || "—"}</td></tr>
+          <tr><th>Care</th><td>${p.care || "—"}</td></tr>
+          <tr><th>Shipping</th><td>${p.ship || "Tracked international parcel from China."}</td></tr>
+          <tr><th>Weight</th><td>${p.grams} g</td></tr>
+        </table>
+      </details>
     </div>`;
   const qty = document.getElementById("qty");
   document.getElementById("minus").onclick = () => { qty.value = Math.max(1, Number(qty.value) - 1); };
