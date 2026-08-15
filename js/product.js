@@ -33,6 +33,10 @@ if (!p) {
       <h1>${p.title}</h1>
       <p class="price">${money(p.price)} <span class="small muted">USD</span></p>
       <p>${p.lead || p.summary}</p>
+      <div class="specs-block">
+      <span class="specs-mark" aria-hidden="true">
+        <img src="/images/icon-spec.svg?v=2" alt="" width="24" height="24" />
+      </span>
       <table class="specs">
         <tr><th>SKU</th><td>${p.sku}</td></tr>
         <tr><th>Materials</th><td>${p.materials || "—"}</td></tr>
@@ -42,6 +46,7 @@ if (!p) {
         <tr><th>Care</th><td>${p.care || "—"}</td></tr>
         <tr><th>Shipping</th><td>${p.ship || "Tracked international parcel."}</td></tr>
       </table>
+      </div>
       <div class="actions">
         <div class="qty">
           <button type="button" id="minus" aria-label="Decrease">−</button>

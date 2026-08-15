@@ -154,9 +154,20 @@ nav a:hover, nav a[aria-current="page"] { color: var(--ink); }
 .thumbs img { width: 72px; height: 72px; object-fit: cover; }
 .pdp h1 { font-size: clamp(28px, 4vw, 40px); font-weight: 500; margin: 8px 0 12px; line-height: 1.1; }
 .pdp .price { font-size: 22px; margin: 0 0 16px; }
-.specs { width: 100%; border-collapse: collapse; margin: 20px 0 8px; font-size: 14px; }
+.specs-block { position: relative; margin: 24px 0 8px; }
+.specs-mark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+.specs-mark img { width: 24px; height: 24px; border-radius: 6px; }
+.specs { width: 100%; border-collapse: collapse; margin: 0; font-size: 14px; }
 .specs th, .specs td { text-align: left; padding: 8px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
 .specs th { width: 34%; color: var(--muted); font-weight: 500; }
+.specs tr:first-child th { padding-left: 34px; line-height: 24px; }
 .qty {
   display: inline-flex;
   align-items: center;
