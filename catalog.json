@@ -7,13 +7,21 @@
     "price": 12.9,
     "grams": 20,
     "image": "https://cf.cjdropshipping.com/43c35de9-4b81-43f4-bd20-f6d9e5ed4c4e.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/43c35de9-4b81-43f4-bd20-f6d9e5ed4c4e.jpg",
+      "https://cf.cjdropshipping.com/28c2b863-efbf-462d-8f90-6400b1f78565.jpg",
+      "https://cf.cjdropshipping.com/9ac8609a-072b-45a6-8ee3-a5027664e123.jpg"
+    ],
     "summary": "Adhesive silicone clips that hold charging cables on a desk or nightstand. No magnets.",
-    "bodyHtml": "<p>Adhesive silicone clips that hold charging cables on a desk or nightstand. No magnets.</p><p><strong>Materials:</strong> Silicone with adhesive pad</p><p><strong>In the box:</strong> 8 clips</p><p><strong>Care:</strong> Wipe clean. Adhesive holds best on a dry, smooth surface. Removing a clip may leave residue.</p><p>Processing: 1–2 business days. Tracked international shipping. A light item, suitable for a first test order.</p>",
+    "lead": "Keep a charging cable on the desk instead of on the floor. Soft silicone, no magnets.",
+    "materials": "Silicone with adhesive pad",
+    "inbox": "8 clips",
+    "care": "Wipe clean. Adhesive holds best on a dry, smooth surface. Removing a clip may leave residue.",
+    "use": "Desk, nightstand, bedside table",
+    "ship": "1–2 business days to process. Tracked international parcel from China.",
+    "bodyHtml": "<p>Adhesive silicone clips that hold charging cables on a desk or nightstand. No magnets.</p><p>A light first-order item. Stick the pad to a dry, smooth surface, then press the cable into the clip.</p>",
     "variantId": "53283217932597",
     "productGid": "gid://shopify/Product/10641836638517",
-    "cjUrl": "https://www.cjdropshipping.com/product/cable-holder-clips-cable-organizer-silicone-usb-processor-winder-desktop-tidy-management-clips-cable-protector-winder-p-1426473531578912768.html",
-    "costUsd": 0.23,
-    "supplierSku": "CJJT125189801AZ",
     "dropship": "cj"
   },
   {
@@ -24,13 +32,21 @@
     "price": 22.9,
     "grams": 315,
     "image": "https://cf.cjdropshipping.com/2056/3641937116880.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/2056/3641937116880.jpg",
+      "https://cf.cjdropshipping.com/2056/683545220753.jpg",
+      "https://cf.cjdropshipping.com/2056/2534106270694.jpg"
+    ],
     "summary": "Open bins for sorting a shallow drawer. Use in a desk, vanity, or kitchen drawer.",
-    "bodyHtml": "<p>Open bins for sorting a shallow drawer. Use in a desk, vanity, or kitchen drawer.</p><p><strong>Materials:</strong> PP</p><p><strong>In the box:</strong> organizer pieces in mixed sizes</p><p><strong>Care:</strong> Wipe clean.</p><p>This is a drawer organizer, not a cosmetic kit. Processing: 1–2 business days. Tracked international shipping.</p>",
+    "lead": "Open bins for a shallow drawer — desk, vanity, or kitchen.",
+    "materials": "PP",
+    "inbox": "Organizer pieces in mixed sizes",
+    "care": "Wipe clean. Not a cosmetic kit.",
+    "use": "Desk drawer, vanity, kitchen drawer",
+    "ship": "1–2 business days to process. Tracked international parcel from China.",
+    "bodyHtml": "<p>Open bins for sorting a shallow drawer. Use in a desk, vanity, or kitchen drawer.</p><p>This is a drawer organizer, not a cosmetic kit. Arrange the pieces to fit the drawer you have.</p>",
     "variantId": "53283224813877",
     "productGid": "gid://shopify/Product/10641838866741",
-    "cjUrl": "https://www.cjdropshipping.com/product/drawer-organizer-p-60A52A6C-FCD0-4F83-AC5B-5A02DF29F1EF.html",
-    "costUsd": 0.65,
-    "supplierSku": "DESK-02",
     "dropship": "cj"
   },
   {
@@ -41,13 +57,21 @@
     "price": 16.9,
     "grams": 200,
     "image": "https://oss-cf.cjdropshipping.com/product/2026/07/23/03/fdb8bc98-6d6e-4d3a-ad1d-82c6de29a46f_water.jpeg",
+    "images": [
+      "https://oss-cf.cjdropshipping.com/product/2026/07/23/03/fdb8bc98-6d6e-4d3a-ad1d-82c6de29a46f_water.jpeg",
+      "https://oss-cf.cjdropshipping.com/product/2026/07/23/03/f677c6db-c19c-4cae-b7f3-cf9a607148d0_water.jpeg",
+      "https://oss-cf.cjdropshipping.com/product/2026/07/23/03/9b5843e2-0624-430f-a88f-e91c8ac60d1d_water.jpeg"
+    ],
     "summary": "Adjustable bamboo dividers that expand to split a drawer into sections.",
-    "bodyHtml": "<p>Adjustable bamboo dividers that expand to split a drawer into sections.</p><p><strong>Materials:</strong> Bamboo</p><p><strong>In the box:</strong> divider set</p><p><strong>Care:</strong> Wipe clean. Measure your drawer before ordering.</p><p>Processing: 1–2 business days. Tracked international shipping.</p>",
+    "lead": "Expand the slats to split one drawer into sections. Measure the drawer first.",
+    "materials": "Bamboo",
+    "inbox": "Adjustable divider set",
+    "care": "Wipe clean. Measure your drawer before ordering.",
+    "use": "Kitchen, desk, or wardrobe drawer",
+    "ship": "1–2 business days to process. Tracked international parcel from China.",
+    "bodyHtml": "<p>Adjustable bamboo dividers that expand to split a drawer into sections.</p><p>Measure the inside width of the drawer before you order. Wipe clean; do not soak.</p>",
     "variantId": "53283224879413",
     "productGid": "gid://shopify/Product/10641838932277",
-    "cjUrl": "https://www.cjdropshipping.com/product/bamboo-drawer-divider-kitchen-drawer-organizer-p-2607230336361639600.html",
-    "costUsd": 1.75,
-    "supplierSku": "DESK-03",
     "dropship": "cj"
   },
   {
@@ -58,13 +82,21 @@
     "price": 24.9,
     "grams": 230,
     "image": "https://cf.cjdropshipping.com/1621415322004.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/1621415322004.jpg",
+      "https://cf.cjdropshipping.com/1621415322003.jpg",
+      "https://cf.cjdropshipping.com/1621415322016.jpg"
+    ],
     "summary": "A caddy that holds a sponge and brush beside the sink. Drain holes let water run off. No soap is included.",
-    "bodyHtml": "<p>A caddy that holds a sponge and brush beside the sink. Drain holes let water run off. No soap or liquid is included.</p><p><strong>Materials:</strong> PP</p><p><strong>In the box:</strong> 1 sink caddy</p><p><strong>Care:</strong> Rinse and air-dry.</p><p>Processing: 1–2 business days. Tracked international shipping.</p>",
+    "lead": "Holds a sponge and brush beside the sink. Drain holes let water run off.",
+    "materials": "PP",
+    "inbox": "1 sink caddy. No soap or brush included.",
+    "care": "Rinse and air-dry.",
+    "use": "Kitchen sink edge",
+    "ship": "1–2 business days to process. Tracked international parcel from China.",
+    "bodyHtml": "<p>A caddy that holds a sponge and brush beside the sink. Drain holes let water run off.</p><p>No soap or liquid is included. Rinse and air-dry after use.</p>",
     "variantId": "53283225370933",
     "productGid": "gid://shopify/Product/10641839292725",
-    "cjUrl": "https://www.cjdropshipping.com/product/kitchen-sink-caddy-organizer-nonslip-sponge-soap-brush-holder-p-1394944421199482880.html",
-    "costUsd": 2.08,
-    "supplierSku": "KITC-01",
     "dropship": "cj"
   }
 ]

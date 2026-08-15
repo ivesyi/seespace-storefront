@@ -25,10 +25,19 @@ export function setCart(items) {
 
 export function addToCart(product, qty = 1) {
   const cart = getCart();
+  const n = Math.max(1, Number(qty) || 1);
   const hit = cart.find((i) => i.sku === product.sku);
-  if (hit) hit.qty += qty;
-  else cart.push({ sku: product.sku, handle: product.handle, title: product.title, price: product.price, variantId: product.variantId, qty });
+  if (hit) hit.qty += n;
+  else cart.push({ sku: product.sku, handle: product.handle, title: product.title, price: product.price, variantId: product.variantId, image: product.image, qty: n });
   setCart(cart);
+}
+
+export function flash(el, text) {
+  if (!el) return;
+  const prev = el.dataset.label || el.textContent;
+  el.dataset.label = prev;
+  el.textContent = text;
+  window.setTimeout(() => { el.textContent = el.dataset.label; }, 1400);
 }
 
 export function paintCartCount() {
@@ -49,6 +58,7 @@ export function checkout() {
 }
 
 export function cardHTML(p) {
+  if (!p) return "";
   const media = p.image
     ? `<img class="thumb" src="${p.image}" alt="${p.title}" />`
     : `<div class="swatch">${p.sku}</div>`;
@@ -67,4 +77,5 @@ export function mountChrome() {
   $("#year") && ($("#year").textContent = new Date().getFullYear());
 }
 
-document.addEventListener("DOMContentLoaded", mountChrome);
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mountChrome);
+else mountChrome();

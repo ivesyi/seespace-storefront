@@ -27,7 +27,7 @@
       <button class="btn" type="button" id="checkout">Checkout</button>
       <a class="btn ghost" href="./shop.html">Continue</a>
     </div>
-    <p class="small muted">Checkout opens Shopify Checkout (PayPal). If you see a password page or “链接不存在”, turn off the store password first: Online Store → Preferences.</p>
+    <p class="small muted">Checkout opens Shopify Checkout with PayPal.</p>
   </main>
   <footer class="site-footer">
     <div class="wrap">SeeSpace. hello@shops.yiqiai.tech. © <span id="year"></span></div>
@@ -46,7 +46,7 @@
       rows.innerHTML = cart.map((i) => `
         <div class="cart-row" data-sku="${i.sku}">
           <div>
-            <strong>${i.title}</strong>
+            <strong><a href="./product.html?handle=${encodeURIComponent(i.handle)}">${i.title}</a></strong>
             <div class="small muted">${i.sku} · ${money(i.price)}</div>
           </div>
           <div>x ${i.qty}</div>
