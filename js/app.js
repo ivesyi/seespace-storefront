@@ -4,8 +4,24 @@ const CART_KEY = "seespace-cart";
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
+export function tidyUrl() {
+  if (location.pathname.endsWith("/index.html")) {
+    const next = location.pathname.replace(/index\.html$/, "") || "/";
+    history.replaceState(null, "", next + location.search + location.hash);
+  }
+}
+
+export function productHref(handle) {
+  return `/product/${handle}/`;
+}
+
+export function shopHref(type) {
+  if (!type || type === "All") return "/shop/";
+  return `/shop/?type=${encodeURIComponent(type)}`;
+}
+
 export async function loadCatalog() {
-  const res = await fetch("./catalog.json?v=3");
+  const res = await fetch("/catalog.json?v=5");
   return res.json();
 }
 
@@ -62,7 +78,7 @@ export function cardHTML(p) {
   const media = p.image
     ? `<img class="thumb" src="${p.image}" alt="${p.title}" />`
     : `<div class="swatch">${p.sku}</div>`;
-  return `<a class="card" href="./product.html?handle=${encodeURIComponent(p.handle)}" data-sku="${p.sku}">
+  return `<a class="card" href="${productHref(p.handle)}" data-sku="${p.sku}">
     ${media}
     <div class="meta">
       <div class="type">${p.type}</div>
@@ -73,6 +89,7 @@ export function cardHTML(p) {
 }
 
 export function mountChrome() {
+  tidyUrl();
   paintCartCount();
   $("#year") && ($("#year").textContent = new Date().getFullYear());
 }

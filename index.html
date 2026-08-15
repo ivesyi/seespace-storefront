@@ -4,36 +4,38 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SeeSpace — Small Space Organization</title>
+  <link rel="canonical" href="https://shops.yiqiai.tech/" />
   <meta name="description" content="Four organizers for a desk, a drawer, and a small sink. USD. PayPal on Shopify Checkout." />
   <meta property="og:title" content="SeeSpace — See more space." />
   <meta property="og:description" content="Four SKUs for compact rooms. Tracked shipping from China." />
   <meta property="og:image" content="https://shops.yiqiai.tech/images/share-clips.jpg" />
-  <link rel="stylesheet" href="./css/styles.css?v=4" />
+  <link rel="stylesheet" href="/css/styles.css?v=5" />
+  <script>if (location.pathname.endsWith("/index.html")) location.replace("/" + location.search + location.hash);</script>
 </head>
 <body>
   <div class="notice">Tracked shipping to the US, UK, Canada, and Australia.</div>
   <header class="site-header">
     <div class="wrap bar">
-      <a class="brand" href="./index.html">SeeSpace</a>
+      <a class="brand" href="/">SeeSpace</a>
       <nav>
-        <a href="./index.html" aria-current="page">Home</a>
-        <a href="./shop.html">Shop</a>
-        <a href="./about.html">About</a>
+        <a href="/" aria-current="page">Home</a>
+        <a href="/shop/">Shop</a>
+        <a href="/about/">About</a>
       </nav>
-      <a class="cart-link" href="./cart.html">Cart (<span data-cart-count>0</span>)</a>
+      <a class="cart-link" href="/cart/">Cart (<span data-cart-count>0</span>)</a>
     </div>
   </header>
 
   <main class="wrap">
     <section class="hero-band" aria-label="Hero">
-      <img src="./images/hero-desk.jpg" alt="A small desk with a sorted drawer and cable clips along the edge" />
+      <img src="/images/hero-desk.jpg" alt="A small desk with a sorted drawer and cable clips along the edge" />
       <div class="hero-copy">
         <p class="kicker">Four SKUs · USD · PayPal</p>
         <h1>See more space.</h1>
         <p>Simple organizers for a desk, a drawer, and a small sink. Four items you can order today.</p>
         <p class="actions">
-          <a class="btn" href="./shop.html">Shop the four</a>
-          <a class="btn ghost" href="./product.html?handle=drawer-organizer-set">View the drawer set</a>
+          <a class="btn" href="/shop/">Shop the four</a>
+          <a class="btn ghost" href="/product/drawer-organizer-set/">View the drawer set</a>
         </p>
       </div>
     </section>
@@ -46,22 +48,22 @@
     <section class="section">
       <h2>Shop by space</h2>
       <div class="space-grid">
-        <a class="space-card" href="./shop.html?type=Desk%20%26%20Drawer">
-          <img src="./images/space-drawer.jpg" alt="Bamboo dividers splitting a drawer into sections" />
+        <a class="space-card" href="/shop/?type=Desk%20%26%20Drawer">
+          <img src="/images/space-drawer.jpg" alt="Bamboo dividers splitting a drawer into sections" />
           <div>
             <h3>Desk & Drawer</h3>
             <p>Clips, bins, and bamboo dividers.</p>
           </div>
         </a>
-        <a class="space-card" href="./product.html?handle=compact-sink-caddy">
-          <img src="./images/space-kitchen.jpg" alt="A sink caddy holding a sponge and brush" />
+        <a class="space-card" href="/product/compact-sink-caddy/">
+          <img src="/images/space-kitchen.jpg" alt="A sink caddy holding a sponge and brush" />
           <div>
             <h3>Kitchen</h3>
             <p>One caddy for sponge and brush.</p>
           </div>
         </a>
-        <a class="space-card" href="./product.html?handle=silicone-cable-clips">
-          <img src="./images/share-clips.jpg" alt="A nightstand cable held by a silicone clip" />
+        <a class="space-card" href="/product/silicone-cable-clips/">
+          <img src="/images/share-clips.jpg" alt="A nightstand cable held by a silicone clip" />
           <div>
             <h3>Bedside</h3>
             <p>A light first test order.</p>
@@ -92,7 +94,7 @@
     </div>
   </footer>
   <script type="module">
-    import { loadCatalog, cardHTML } from "./js/app.js?v=4";
+    import { loadCatalog, cardHTML } from "/js/app.js?v=5";
     const featured = ["DESK-04", "DESK-02", "DESK-03", "KITC-01"];
     const products = await loadCatalog();
     const map = Object.fromEntries(products.map((p) => [p.sku, p]));
