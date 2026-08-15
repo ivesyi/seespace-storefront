@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Product — SeeSpace</title>
-  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/styles.css?v=3" />
 </head>
 <body>
   <div class="notice">Tracked shipping to the US, UK, Canada, and Australia.</div>
@@ -30,7 +30,7 @@
     <div class="wrap">SeeSpace. hello@shops.yiqiai.tech. © <span id="year"></span></div>
   </footer>
   <script type="module">
-    import { loadCatalog, money, addToCart, flash, cardHTML } from "./js/app.js";
+    import { loadCatalog, money, addToCart, flash, cardHTML } from "./js/app.js?v=3";
     const handle = new URLSearchParams(location.search).get("handle");
     const products = await loadCatalog();
     const p = products.find((x) => x.handle === handle);
