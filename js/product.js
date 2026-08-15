@@ -1,4 +1,4 @@
-import { loadCatalog, money, addToCart, flash, cardHTML } from "/js/app.js?v=5";
+import { loadCatalog, money, addToCart, flash, cardHTML } from "/js/app.js?v=6";
 
 function handleFromPath() {
   const parts = location.pathname.split("/").filter(Boolean);
@@ -15,7 +15,8 @@ if (!p) {
   root.innerHTML = `<p class="muted">This SKU is not on the store. <a href="/shop/">Back to shop</a></p>`;
 } else {
   document.title = `${p.title} (${p.sku}) — SeeSpace`;
-  const gallery = p.images && p.images.length ? p.images : (p.image ? [p.image] : []);
+  const raw = p.images && p.images.length ? p.images : (p.image ? [p.image] : []);
+  const gallery = [...new Set(raw.filter(Boolean))];
   const thumbs = gallery.map((src, i) =>
     `<button type="button" data-src="${src}" class="${i === 0 ? "on" : ""}"><img src="${src}" alt="" /></button>`
   ).join("");

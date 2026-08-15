@@ -21,7 +21,7 @@ export function shopHref(type) {
 }
 
 export async function loadCatalog() {
-  const res = await fetch("/catalog.json?v=5");
+  const res = await fetch("/catalog.json?v=6");
   return res.json();
 }
 

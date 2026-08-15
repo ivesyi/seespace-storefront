@@ -30,7 +30,7 @@
     <div class="wrap">SeeSpace. hello@shops.yiqiai.tech. © <span id="year"></span></div>
   </footer>
   <script type="module">
-    import { loadCatalog, cardHTML, shopHref } from "/js/app.js?v=5";
+    import { loadCatalog, cardHTML, shopHref } from "/js/app.js?v=6";
     const products = await loadCatalog();
     const types = ["All", ...new Set(products.map((p) => p.type))];
     const params = new URLSearchParams(location.search);
